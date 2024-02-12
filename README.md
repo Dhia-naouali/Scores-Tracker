@@ -1,6 +1,6 @@
- # YOUR PROJECT TITLE
-    #### Video Demo:  [youtube](https://www.youtube.com/watch?v=GCAWtp-DgIo)
-    #### Description:
+# Scores Tracker
+### Video Demo:  [youtube](https://www.youtube.com/watch?v=GCAWtp-DgIo)
+### Description:
 
 **Scores Tracker** is a python program that, given a Google Sheets spreadsheet that includes a class's scores, will prompt the user for their full name
 to output their overall score, their ranking in the class, and their scores in each subject
