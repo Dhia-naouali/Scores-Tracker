@@ -1,16 +1,6 @@
 from googleapiclient.discovery import build
 
 
-"""
-google sheets api:
-
-
-
-installs:
-pip install --upgrade google-api-python-client
-"""
-
-
 api_key = "AIzaSyBI5CoMHqTCCRZav8BsEJzI3d9TIiUJ1d0"
 SPREAD_SHEET_ID = "1AKk3unx7a4d0Yq4CWi_8bD3It-E96LhRmx1wbaVrgDE"
 spreadsheets = build("sheets", "v4", developerKey=api_key).spreadsheets()
@@ -19,7 +9,6 @@ data = spreadsheets.values().get(spreadsheetId=SPREAD_SHEET_ID, range="scores!A1
 grades = data["values"][2:]
 titles = [title.strip().lower() for title in data["values"][0] if title][1:]
 MAX_TITLE_LEN = max(len(t) for t in titles)
-
 
 
 def get_average(sid, weights):
@@ -40,7 +29,7 @@ def get_average(sid, weights):
             candidates.append(grade)
         return round(float(sum(candidates) / len(candidates)), 2)
     else :
-        raise ValueError("subject name typo")
+        raise ValueError(f"no {sid} submitted yet")
 
 def get_score(first, last, sid):
     if sid in titles:
@@ -63,3 +52,4 @@ def get_score(first, last, sid):
                         return score
         raise ValueError(f"student name : {first.capitalize().strip()} {last.capitalize().strip()} doesn't exist in the current database")
     return [0, 0, 0]
+
